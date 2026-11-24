@@ -1,4 +1,4 @@
-package Display;
+package model.display;
 
 public class Display {
     private String model;
