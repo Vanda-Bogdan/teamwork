@@ -13,6 +13,9 @@ public class Display implements Comparable<Display>{
         this.refreshRate = refreshRate;
     }
 
+    public Display() {
+    }
+
     public String getModel() {
         return model;
     }
