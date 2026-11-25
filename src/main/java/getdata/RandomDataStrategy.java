@@ -5,29 +5,40 @@ import model.display.Display;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.IntStream;
 
-public class RandomDataStrategy<T> implements GetDataStrategy<T> {
+public class RandomDataStrategy<T, B extends EntityBuilder<T>> implements GetDataStrategy<T> {
 
-    private final EntityBuilder<T> builder;
+    private final B builder;
     private final int size;
+    private final Consumer<B> randomizer;
 
-    public RandomDataStrategy(EntityBuilder<T> builder, int size) {
+    public RandomDataStrategy(B builder, Consumer<B> randomizer, int size) {
         this.builder = builder;
         this.size = size;
+        this.randomizer = randomizer;
     }
 
     @Override
     public List<T> getData() {
 
-        List<T> result = new ArrayList<>();
+//        List<T> result = new ArrayList<>();
+//
+//        for (int i = 0; i < size; i++) {
+//            // Здесь генерируются случайные значения
+//            // и передаются в Builder.
+//
+//            result.add(builder.build());
+//        }
+//
+//        return result;
 
-        for (int i = 0; i < size; i++) {
-            // Здесь генерируются случайные значения
-            // и передаются в Builder.
-
-            result.add(builder.build());
-        }
-
-        return result;
+        return IntStream.range(0, size)
+                .mapToObj(i -> {
+                    randomizer.accept(builder);
+                    return builder.build();
+                })
+                .toList();
     }
 }

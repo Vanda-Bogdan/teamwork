@@ -1,6 +1,8 @@
 package model.display;
 
-public class Display {
+import java.util.Comparator;
+
+public class Display implements Comparable<Display>{
     private String model;
     private double diagonal;
     private int refreshRate;
@@ -9,6 +11,9 @@ public class Display {
         this.model = model;
         this.diagonal = diagonal;
         this.refreshRate = refreshRate;
+    }
+
+    public Display() {
     }
 
     public String getModel() {
@@ -24,4 +29,11 @@ public class Display {
     }
 
 
+    @Override
+    public int compareTo(Display other) {
+        return Comparator.comparing(Display::getModel)
+                .thenComparingDouble(Display::getDiagonal)
+                .thenComparingInt(Display::getRefreshRate)
+                .compare(this, other);
+    }
 }

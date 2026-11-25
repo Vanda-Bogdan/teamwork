@@ -5,6 +5,8 @@ import model.EntityBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ManualDataStrategy<T, B extends EntityBuilder<T>> implements GetDataStrategy<T> {
 
@@ -25,19 +27,25 @@ public class ManualDataStrategy<T, B extends EntityBuilder<T>> implements GetDat
     @Override
     public List<T> getData() {
 
-        List<T> result = new ArrayList<>();
+//        List<T> result = new ArrayList<>();
+//
+//        for (int i = 0; i < size; i++) {
+//
+//            System.out.println("\nЗаполнение объекта №" + (i + 1));
+//
+//            dataReader.readData(builder);
+//
+//            T object = builder.build();
+//
+//            result.add(object);
+//        }
 
-        for (int i = 0; i < size; i++) {
-
-            System.out.println("\nЗаполнение объекта №" + (i + 1));
-
-            dataReader.readData(builder);
-
-            T object = builder.build();
-
-            result.add(object);
-        }
-
-        return result;
+        return IntStream.range(0, size)
+                .mapToObj( i -> {
+                    System.out.println("\nЗаполнение объекта №" + (i + 1));
+                    dataReader.readData(builder);
+                    return builder.build();
+                })
+                .toList();
     }
 }
