@@ -2,7 +2,7 @@ package getdata;
 
 import java.util.List;
 
-public class FileDataStrategy implements GetDataStrategy<T> {
+public class FileDataStrategy<T> implements GetDataStrategy<T> {
 
 
     @Override

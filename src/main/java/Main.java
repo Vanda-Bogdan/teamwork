@@ -16,8 +16,8 @@ public class Main {
 
         System.out.println("Выберите класс:");
         System.out.println("1. Display");
-        System.out.println("2. Class2");
-        System.out.println("3. Class3");
+        System.out.println("2. Automobile");
+        System.out.println("3. Product");
 
         int classChoice = Integer.parseInt(SCANNER.nextLine());
 
