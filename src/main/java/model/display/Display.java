@@ -1,4 +1,4 @@
-package Display;
+package model.display;
 
 import java.util.Comparator;
 
