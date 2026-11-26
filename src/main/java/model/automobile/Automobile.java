@@ -33,4 +33,10 @@ public class Automobile {
 
     public static final Comparator<Automobile> BY_POWER =
             Comparator.comparingDouble(Automobile::getEnginePower);
+
+
+    public static final Comparator<Automobile> DEFAULT_SORT =
+            BY_MODEL
+                    .thenComparing(BY_YEAR)
+                    .thenComparing(BY_POWER);
 }
