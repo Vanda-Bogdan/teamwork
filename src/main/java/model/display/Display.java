@@ -45,4 +45,10 @@ public class Display {
 
     public static final Comparator<Display> BY_REFRESH_RATE =
             Comparator.comparingInt(Display::getRefreshRate);
+
+
+    public static final Comparator<Display> DEFAULT_SORT =
+            BY_MODEL
+                    .thenComparing(BY_DIAGONAL)
+                    .thenComparing(BY_REFRESH_RATE);
 }
