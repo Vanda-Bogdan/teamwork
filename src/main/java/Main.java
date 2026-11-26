@@ -142,6 +142,31 @@ public class Main {
 
             case 3 -> {
                 // Аналогичная настройка для Product
+
+                /*
+                 System.out.println("\nВыберите способ сортировки Product:");
+                System.out.println("1. По умолчанию (Название -> Цена -> Количество)");
+                System.out.println("2. По названию (А-Я)");
+                System.out.println("3. По цене (от дешевых к дорогим)");
+                System.out.println("4. По цене (от дорогих к дешевым)");
+                System.out.println("5. По количеству (по убыванию)");
+                int sortChoice = Integer.parseInt(SCANNER.nextLine());
+
+                switch (sortChoice) {
+                    case 1 -> Sorter.sort(products, Product.DEFAULT_SORT);
+                    case 2 -> Sorter.sort(products, Product.BY_NAME);
+                    case 3 -> Sorter.sort(products, Product.BY_PRICE);
+                    case 4 -> Sorter.sort(products, Product.BY_PRICE.reversed());
+                    case 5 -> Sorter.sort(products, Product.BY_QUANTITY.reversed());
+                    default -> System.out.println("Неверный выбор, сортировка не применена.");
+                }
+
+                System.out.println("\n--- Результат ---");
+                products.forEach(p ->
+                    System.out.printf("Название: %-15s | Цена: %8.2f | Кол-во: %d%n",
+                        p.getName(), p.getPrice(), p.getQuantity())
+                );
+                */
             }
 
             default -> System.out.println("Неверный выбор.");
