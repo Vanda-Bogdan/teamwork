@@ -2,7 +2,7 @@ package model.display;
 
 import java.util.Comparator;
 
-public class Display implements Comparable<Display>{
+public class Display {
     private String model;
     private double diagonal;
     private int refreshRate;
@@ -28,12 +28,12 @@ public class Display implements Comparable<Display>{
         return refreshRate;
     }
 
-
-    @Override
+    //уберу реализацию интерфейса Comparable таким способом
+    /*@Override
     public int compareTo(Display other) {
         return Comparator.comparing(Display::getModel)
                 .thenComparingDouble(Display::getDiagonal)
                 .thenComparingInt(Display::getRefreshRate)
                 .compare(this, other);
-    }
+    }*/
 }
