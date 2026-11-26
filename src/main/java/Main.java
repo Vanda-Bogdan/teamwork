@@ -115,6 +115,29 @@ public class Main {
 
             case 2 -> {
                 // Аналогичная настройка для Automobile
+
+                /*
+                System.out.println("\nВыберите способ сортировки Automobile:");
+                System.out.println("1. По умолчанию (Модель -> Год -> Мощность)");
+                System.out.println("2. По модели (А-Я)");
+                System.out.println("3. По году (от старых к новым)");
+                System.out.println("4. По мощности (по убыванию)");
+                int sortChoice = Integer.parseInt(SCANNER.nextLine());
+
+                switch (sortChoice) {
+                    case 1 -> Sorter.sort(autos, Automobile.DEFAULT_SORT);
+                    case 2 -> Sorter.sort(autos, Automobile.BY_MODEL);
+                    case 3 -> Sorter.sort(autos, Automobile.BY_YEAR);
+                    case 4 -> Sorter.sort(autos, Automobile.BY_POWER.reversed());
+                    default -> System.out.println("Неверный выбор, сортировка не применена.");
+                }
+
+                System.out.println("\n--- Результат ---");
+                autos.forEach(a ->
+                    System.out.printf("Модель: %-20s | Мощность: %6.1f л.с. | Год: %d%n",
+                        a.getModel(), a.getEnginePower(), a.getYear())
+                );
+                */
             }
 
             case 3 -> {
