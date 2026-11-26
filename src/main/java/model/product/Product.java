@@ -33,4 +33,10 @@ public class Product {
 
     public static final Comparator<Product> BY_QUANTITY =
             Comparator.comparingInt(Product::getQuantity);
+    
+
+    public static final Comparator<Product> DEFAULT_SORT =
+            BY_NAME
+                    .thenComparing(BY_PRICE)
+                    .thenComparing(BY_QUANTITY);
 }
