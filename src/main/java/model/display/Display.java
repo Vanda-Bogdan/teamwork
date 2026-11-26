@@ -36,4 +36,13 @@ public class Display {
                 .thenComparingInt(Display::getRefreshRate)
                 .compare(this, other);
     }*/
+
+    public static final Comparator<Display> BY_MODEL =
+            Comparator.comparing(Display::getModel);
+
+    public static final Comparator<Display> BY_DIAGONAL =
+            Comparator.comparingDouble(Display::getDiagonal);
+
+    public static final Comparator<Display> BY_REFRESH_RATE =
+            Comparator.comparingInt(Display::getRefreshRate);
 }
