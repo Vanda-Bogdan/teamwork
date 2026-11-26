@@ -1,5 +1,7 @@
 package model.automobile;
 
+import java.util.Comparator;
+
 public class Automobile {
     private String model;
     private double enginePower;
@@ -22,4 +24,19 @@ public class Automobile {
     public int getYear() {
         return year;
     }
+
+    public static final Comparator<Automobile> BY_MODEL =
+            Comparator.comparing(Automobile::getModel);
+
+    public static final Comparator<Automobile> BY_YEAR =
+            Comparator.comparingInt(Automobile::getYear);
+
+    public static final Comparator<Automobile> BY_POWER =
+            Comparator.comparingDouble(Automobile::getEnginePower);
+
+
+    public static final Comparator<Automobile> DEFAULT_SORT =
+            BY_MODEL
+                    .thenComparing(BY_YEAR)
+                    .thenComparing(BY_POWER);
 }

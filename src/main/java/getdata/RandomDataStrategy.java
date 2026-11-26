@@ -6,6 +6,7 @@ import model.display.Display;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class RandomDataStrategy<T, B extends EntityBuilder<T>> implements GetDataStrategy<T> {
@@ -39,6 +40,7 @@ public class RandomDataStrategy<T, B extends EntityBuilder<T>> implements GetDat
                     randomizer.accept(builder);
                     return builder.build();
                 })
-                .toList();
+                //.toList();
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }
