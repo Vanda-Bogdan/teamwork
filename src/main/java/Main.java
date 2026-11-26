@@ -3,6 +3,7 @@ import getdata.*;
 import model.display.Display;
 import model.display.DisplayBuilder;
 import randomizer.DisplayRandomizer;
+import sorter.Sorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,8 +84,32 @@ public class Main {
 
                 List<Display> displays = provider.getData();
 
+
                 displays.forEach(display ->
                         System.out.println(display.getModel())
+                );
+
+                System.out.println("\nВыберите способ сортировки Display:");
+                System.out.println("1. По умолчанию (Модель -> Диагональ -> Частота)");
+                System.out.println("2. По модели (А-Я)");
+                System.out.println("3. По диагонали (по возрастанию)");
+                System.out.println("4. По диагонали (по убыванию)");
+                System.out.println("5. По частоте обновления (по убыванию)");
+                int sortChoice = Integer.parseInt(SCANNER.nextLine());
+
+                switch (sortChoice) {
+                    case 1 -> Sorter.sort(displays, Display.DEFAULT_SORT);
+                    case 2 -> Sorter.sort(displays, Display.BY_MODEL);
+                    case 3 -> Sorter.sort(displays, Display.BY_DIAGONAL);
+                    case 4 -> Sorter.sort(displays, Display.BY_DIAGONAL.reversed());
+                    case 5 -> Sorter.sort(displays, Display.BY_REFRESH_RATE.reversed());
+                    default -> System.out.println("Неверный выбор, сортировка не применена.");
+                }
+
+                System.out.println("\n--- Результат ---");
+                displays.forEach(d ->
+                        System.out.printf("Модель: %-15s | Диагональ: %.1f | Частота: %d Гц%n",
+                                d.getModel(), d.getDiagonal(), d.getRefreshRate())
                 );
             }
 
