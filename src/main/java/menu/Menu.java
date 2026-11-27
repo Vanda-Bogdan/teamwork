@@ -54,45 +54,45 @@ public class Menu {
         };
     }
 
-//    public Comparator<Automobile> chooseAutomobileSort() {
-//        System.out.println("\nВыберите способ сортировки Automobile:");
-//        System.out.println("1. По умолчанию (Модель -> Год -> Мощность)");
-//        System.out.println("2. По модели (А-Я)");
-//        System.out.println("3. По году (от старых к новым)");
-//        System.out.println("4. По мощности (по убыванию)");
-//
-//        int choice = Integer.parseInt(scanner.nextLine());
-//        return switch (choice) {
-//            case 1 -> Automobile.DEFAULT_SORT;
-//            case 2 -> Automobile.BY_MODEL;
-//            case 3 -> Automobile.BY_YEAR;
-//            case 4 -> Automobile.BY_POWER.reversed();
-//            default -> {
-//                System.out.println("Неверный выбор.");
-//                yield null;
-//            }
-//        };
-//    }
-//
-//    public Comparator<Product> chooseProductSort() {
-//        System.out.println("\nВыберите способ сортировки Product:");
-//        System.out.println("1. По умолчанию (Название -> Цена -> Количество)");
-//        System.out.println("2. По названию (А-Я)");
-//        System.out.println("3. По цене (от дешевых к дорогим)");
-//        System.out.println("4. По цене (от дорогих к дешевым)");
-//        System.out.println("5. По количеству (по убыванию)");
-//
-//        int choice = Integer.parseInt(scanner.nextLine());
-//        return switch (choice) {
-//            case 1 -> Product.DEFAULT_SORT;
-//            case 2 -> Product.BY_NAME;
-//            case 3 -> Product.BY_PRICE;
-//            case 4 -> Product.BY_PRICE.reversed();
-//            case 5 -> Product.BY_QUANTITY.reversed();
-//            default -> {
-//                System.out.println("Неверный выбор.");
-//                yield null;
-//            }
-//        };
-//    }
+    public Comparator<Automobile> chooseAutomobileSort() {
+        System.out.println("\nВыберите способ сортировки Automobile:");
+        System.out.println("1. По умолчанию (Модель -> Год -> Мощность)");
+        System.out.println("2. По модели (А-Я)");
+        System.out.println("3. По году (от старых к новым)");
+        System.out.println("4. По мощности (по убыванию)");
+
+        int choice = Integer.parseInt(scanner.nextLine());
+        return switch (choice) {
+            case 1 -> Automobile.DEFAULT_SORT;
+            case 2 -> Automobile.BY_MODEL;
+            case 3 -> Automobile.BY_YEAR;
+            case 4 -> Automobile.BY_POWER.reversed();
+            default -> {
+                System.out.println("Неверный выбор.");
+                yield null;
+            }
+        };
+    }
+
+    public Comparator<Product> chooseProductSort() {
+        System.out.println("\nВыберите способ сортировки Product:");
+        System.out.println("1. По умолчанию (Название -> Цена -> Количество)");
+        System.out.println("2. По названию (А-Я)");
+        System.out.println("3. По цене (от дешевых к дорогим)");
+        System.out.println("4. По цене (от дорогих к дешевым)");
+        System.out.println("5. По количеству (по убыванию)");
+
+        int choice = Integer.parseInt(scanner.nextLine());
+        return switch (choice) {
+            case 1 -> Product.DEFAULT_SORT;
+            case 2 -> Product.BY_NAME;
+            case 3 -> Product.BY_PRICE;
+            case 4 -> Product.BY_PRICE.reversed();
+            case 5 -> Product.BY_QUANTITY.reversed();
+            default -> {
+                System.out.println("Неверный выбор.");
+                yield null;
+            }
+        };
+    }
 }

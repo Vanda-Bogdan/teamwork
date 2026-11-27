@@ -36,12 +36,12 @@ public class Main {
                     case 1 -> {
                         processEntity(new DisplayConfig(), menu, scanner);
                     }
-//                     case 2 -> {
-//                        processEntity(new AutomobileConfig(), menu, scanner);
-//                     }
-//                     case 3 -> {
-//                         processEntity(new ProductConfig(), menu, scanner);
-//                     }
+                     case 2 -> {
+                        processEntity(new AutomobileConfig(), menu, scanner);
+                     }
+                     case 3 -> {
+                         processEntity(new ProductConfig(), menu, scanner);
+                     }
                     default -> {
                         System.out.println("Неверный выбор.");
                         return;
@@ -69,10 +69,10 @@ public class Main {
         B builder = config.createBuilder();
 
         switch (dataChoice) {
-//            case 1 -> {
-//                DataReader<B> reader = config.createReader(scanner);
-//                strategy = new ManualDataStrategy<>(builder, reader, size);
-//            }
+            case 1 -> {
+                DataReader<B> reader = config.createReader(scanner);
+                strategy = new ManualDataStrategy<>(builder, reader, size);
+            }
             case 2 -> {
                 Consumer<B> randomizer = config.createRandomizer(builder);
                 strategy = new RandomDataStrategy<>(builder, randomizer, size);
