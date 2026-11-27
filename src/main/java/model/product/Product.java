@@ -13,6 +13,12 @@ public class Product {
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Название: %-15s | Цена: %8.2f | Кол-во: %d",
+                name, price, quantity);
+    }
+
     public String getName() {
         return name;
     }

@@ -16,6 +16,12 @@ public class Display {
     public Display() {
     }
 
+    @Override
+    public String toString() {
+        return String.format("Модель: %-15s | Диагональ: %.1f | Частота: %d Гц",
+                model, diagonal, refreshRate);
+    }
+
     public String getModel() {
         return model;
     }
