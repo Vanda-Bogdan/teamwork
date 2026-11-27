@@ -13,6 +13,12 @@ public class Automobile {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Модель: %-20s | Мощность: %6.1f л.с. | Год: %d",
+                model, enginePower, year);
+    }
+
     public String getModel() {
         return model;
     }

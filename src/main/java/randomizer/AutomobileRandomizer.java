@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 public class AutomobileRandomizer {
     ThreadLocalRandom random = ThreadLocalRandom.current();
 
-    public Consumer<AutomobileBuilder> productRandomizer = builder -> {
+    public Consumer<AutomobileBuilder> automobileRandomizer = builder -> {
         String[] model = {"Honda Civic", "LADA Vesta", "Mercedes-Benz E-Class", "Toyota Corolla", "Mazda 6", "Porsche 911", "Volkswagen Passat", "Fiat 500", "Chevrolet Camaro", "Citroën C4"};
 
         builder.setModel(model[random.nextInt(model.length)]);
