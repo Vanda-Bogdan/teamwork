@@ -4,11 +4,11 @@ import model.automobile.AutomobileBuilder;
 
 import java.util.Scanner;
 
-public class AutomobileDataReader implements DataReader<AutomobileBuilder> {
+public class AutomobileConsoleReader implements ConsoleReader<AutomobileBuilder> {
 
     private final Scanner scanner;
 
-    public AutomobileDataReader(Scanner scanner) {
+    public AutomobileConsoleReader(Scanner scanner) {
         this.scanner = scanner;
     }
 

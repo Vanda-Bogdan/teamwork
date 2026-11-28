@@ -4,11 +4,11 @@ import model.display.DisplayBuilder;
 
 import java.util.Scanner;
 
-public class DisplayDataReader implements DataReader<DisplayBuilder> {
+public class DisplayConsoleReader implements ConsoleReader<DisplayBuilder> {
 
     private final Scanner scanner;
 
-    public DisplayDataReader(Scanner scanner) {
+    public DisplayConsoleReader(Scanner scanner) {
         this.scanner = scanner;
     }
 

@@ -1,11 +1,14 @@
 package menu;
 
-import datareader.DataReader;
-import datareader.ProductDataReader;
+import datareader.ConsoleReader;
+import datareader.ProductConsoleReader;
+import filereader.FileReader;
+import filereader.ProductFileReader;
 import model.product.Product;
 import model.product.ProductBuilder;
 import randomizer.ProductRandomizer;
 
+import java.io.BufferedReader;
 import java.util.Comparator;
 import java.util.Scanner;
 import java.util.function.Consumer;
@@ -18,14 +21,18 @@ public class ProductConfig implements EntityConfig<Product, ProductBuilder> {
     }
 
     @Override
-    public DataReader<ProductBuilder> createReader(Scanner scanner) {
-        // Вам нужно будет создать этот класс
-        return new ProductDataReader(scanner);
+    public ConsoleReader<ProductBuilder> createConsoleReader(Scanner scanner) {
+        return new ProductConsoleReader(scanner);
     }
 
     @Override
     public Consumer<ProductBuilder> createRandomizer(ProductBuilder builder) {
         return new ProductRandomizer().productRandomizer;
+    }
+
+    @Override
+    public FileReader<ProductBuilder> createFileReader(BufferedReader reader) {
+        return new ProductFileReader(reader);
     }
 
     @Override

@@ -1,21 +1,17 @@
+import filereader.FileReader;
+import getdata.*;
 import menu.*;
-import datareader.DataReader;
-import getdata.DataProvider;
-import getdata.GetDataStrategy;
-import getdata.RandomDataStrategy;
-import getdata.ManualDataStrategy;
+import datareader.ConsoleReader;
 import model.EntityBuilder;
 import sorter.Sorter;
 
+import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class Main {
-
-    // private static final Scanner SCANNER = new Scanner(System.in);
-    // private static final String FILE_PATH = "";
 
     public static void main(String[] args) {
 
@@ -36,12 +32,12 @@ public class Main {
                     case 1 -> {
                         processEntity(new DisplayConfig(), menu, scanner);
                     }
-                     case 2 -> {
+                    case 2 -> {
                         processEntity(new AutomobileConfig(), menu, scanner);
-                     }
-                     case 3 -> {
-                         processEntity(new ProductConfig(), menu, scanner);
-                     }
+                    }
+                    case 3 -> {
+                        processEntity(new ProductConfig(), menu, scanner);
+                    }
                     default -> {
                         System.out.println("Неверный выбор.");
                         return;
@@ -59,9 +55,6 @@ public class Main {
             System.out.print("Введите количество объектов: ");
             size = Integer.parseInt(scanner.nextLine());
         }
-        else if (dataChoice == 3) {
-            return; //TODO Передает кол-во обьектов в size из файла
-        }
 
         DataProvider<T> provider = new DataProvider<>();
         GetDataStrategy<T> strategy = null;
@@ -70,7 +63,7 @@ public class Main {
 
         switch (dataChoice) {
             case 1 -> {
-                DataReader<B> reader = config.createReader(scanner);
+                ConsoleReader<B> reader = config.createConsoleReader(scanner);
                 strategy = new ManualDataStrategy<>(builder, reader, size);
             }
             case 2 -> {
@@ -78,7 +71,9 @@ public class Main {
                 strategy = new RandomDataStrategy<>(builder, randomizer, size);
             }
             case 3 -> {
-                return; //TODO Подключение FileDataStrategy
+                System.out.print("Введите путь к файлу: ");
+                Path path = Path.of(scanner.nextLine().trim());
+                strategy = new FileDataStrategy<>(builder, config::createFileReader, path);
             }
             default -> {
                 System.out.println("Неверный выбор.");
