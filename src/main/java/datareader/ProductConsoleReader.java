@@ -4,11 +4,11 @@ import model.product.ProductBuilder;
 
 import java.util.Scanner;
 
-public class ProductDataReader implements DataReader<ProductBuilder> {
+public class ProductConsoleReader implements ConsoleReader<ProductBuilder> {
 
     private final Scanner scanner;
 
-    public ProductDataReader(Scanner scanner) {
+    public ProductConsoleReader(Scanner scanner) {
         this.scanner = scanner;
     }
 

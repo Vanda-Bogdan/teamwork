@@ -1,23 +1,22 @@
 package getdata;
 
-import datareader.DataReader;
+import datareader.ConsoleReader;
 import model.EntityBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class ManualDataStrategy<T, B extends EntityBuilder<T>> implements GetDataStrategy<T> {
 
     private final B builder;
-    private final DataReader<B> dataReader;
+    private final ConsoleReader<B> dataReader;
     private final int size;
 
     public ManualDataStrategy(
             B builder,
-            DataReader<B> dataReader,
+            ConsoleReader<B> dataReader,
             int size
     ) {
         this.builder = builder;

@@ -1,11 +1,14 @@
 package menu;
 
-import datareader.AutomobileDataReader;
-import datareader.DataReader;
+import datareader.AutomobileConsoleReader;
+import datareader.ConsoleReader;
+import filereader.AutomobileFileReader;
+import filereader.FileReader;
 import model.automobile.Automobile;
 import model.automobile.AutomobileBuilder;
 import randomizer.AutomobileRandomizer;
 
+import java.io.BufferedReader;
 import java.util.Comparator;
 import java.util.Scanner;
 import java.util.function.Consumer;
@@ -18,14 +21,18 @@ public class AutomobileConfig implements EntityConfig<Automobile, AutomobileBuil
     }
 
     @Override
-    public DataReader<AutomobileBuilder> createReader(Scanner scanner) {
-        // Вам нужно будет создать этот класс (по аналогии с DisplayDataReader)
-        return new AutomobileDataReader(scanner);
+    public ConsoleReader<AutomobileBuilder> createConsoleReader(Scanner scanner) {
+        return new AutomobileConsoleReader(scanner);
     }
 
     @Override
     public Consumer<AutomobileBuilder> createRandomizer(AutomobileBuilder builder) {
         return new AutomobileRandomizer().automobileRandomizer;
+    }
+
+    @Override
+    public FileReader<AutomobileBuilder> createFileReader(BufferedReader reader) {
+        return new AutomobileFileReader(reader);
     }
 
     @Override
